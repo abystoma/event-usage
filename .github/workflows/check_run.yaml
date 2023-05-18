@@ -1,0 +1,19 @@
+name: Handle Check Run Events
+on:
+  check_run:
+    types: [rerequested, completed]
+
+jobs:
+  handle-check-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print check run details
+        run: |
+          echo "Check Run Event Triggered"
+          echo "Action: ${{ github.event.action }}"
+          echo "Check Run Name: ${{ github.event.check_run.name }}"
+          echo "Check Run Conclusion: ${{ github.event.check_run.conclusion }}"
