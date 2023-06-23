@@ -1,14 +1,11 @@
-name: Workflow B (Pong)
-on:
-  workflow_call:
-    inputs:
-      ping:
-        required: true
-        type: string
+name: Remote Dispatch Action Responder
+
+on: [repository_dispatch]
 
 jobs:
-  pong:
+  ping-pong:
     runs-on: ubuntu-latest
     steps:
-      - name: Pong
-        run: echo "${{ inputs.ping }}"
+      - name: Event Information
+        run: |
+          echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
