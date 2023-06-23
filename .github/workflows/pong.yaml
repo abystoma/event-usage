@@ -1,6 +1,6 @@
-name: Remote Dispatch Action Responder
+name: Remote Dispatch Responder
 
-on: [repository_dispatch]
+on: repository_dispatch
 
 jobs:
   ping-pong:
