@@ -1,0 +1,14 @@
+name: Workflow B (Pong)
+on:
+  workflow_call:
+
+jobs:
+  pong:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Send Pong
+      run: |
+        echo "Pong"
