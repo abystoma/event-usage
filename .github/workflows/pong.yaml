@@ -1,14 +1,14 @@
 name: Workflow B (Pong)
 on:
   workflow_call:
+    inputs:
+      ping:
+        required: true
+        type: string
 
 jobs:
   pong:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Send Pong
-      run: |
-        echo "Pong"
+      - name: Pong
+        run: echo "${{ inputs.ping }}"
