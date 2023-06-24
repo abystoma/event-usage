@@ -1,11 +1,16 @@
-name: Remote Dispatch Responder
+name: Manual trigger
 
-on: repository_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: "Who to greet"
+        default: "World"
 
 jobs:
-  ping-pong:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Event Information
-        run: |
-          echo "Event '${{ github.event.action }}' received from '${{ github.event.client_payload.repository }}'"
+    hello:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Hello Step
+            run: echo "Hello ${{ github.event.inputs.name }}"
